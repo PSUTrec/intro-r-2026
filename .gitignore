@@ -50,3 +50,5 @@ rsconnect/
 
 # Generated HTML slides
 slides/output/*.html
+
+*.DS_Store
