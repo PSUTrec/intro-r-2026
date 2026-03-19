@@ -33,4 +33,15 @@ occ10_sp80 <- raw_15min |>
   filter(occupancy < 10 & speed > 80)
 table(occ10_sp80$detector_id)
 
+# working with NA's
+blank_example <- raw_15min |>
+  filter(is.na(speed))
+complete_df <- raw_15min |>
+  filter(!is.na(speed))
 
+sub_det <- c(101185, 101176, 101179)
+
+subset_o10s80 <- occ10_sp80 |>
+  filter(detector_id %in% sub_det)
+
+saveRDS(complete_df, "data/clean_data.rds")
